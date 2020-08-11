@@ -1,8 +1,6 @@
-# scaffolding
+# Server-side scaffolding
 
-Create a server-side folder
-
-Install node packages - `npm init -y`
+Create a server-side folder, cd into the folder and install node packages - `npm init -y`
 
 Then install project and dev dependencies
 `npm install --save-dev @babel/core @babel/node @babel/cli @babel/preset-env @babel-preset-stage-0 && npm install express nodemon cors dotenv body-parser mongoose`
@@ -36,9 +34,12 @@ Create a gitignore file touch `.gitignore` to ignore node files when you push to
 **Server**
 Set up Express `server.js` test home route working and app listening on home route
 
+**Server-side security**
+`npm install helmet` basic installation provides 11 HTTP middleware protection layers
+[Documentation](helmetjs.github.io) and on [npm](https://www.npmjs.com/package/helmet)
+`npm install express-rate-limit` protection against denial of service attacks - only 100 requests per IP in 15 minutes.
+
 **MongoDB**
 Add mongoDB connection test in `server.js` and test with real username and password in the .env file
-
-Create MongoDB data-model
-
-**API routes**
+Data security -
+Create MongoDB data-model - type validation
