@@ -73,9 +73,10 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 ## Client-side notes
 
-- URL params front-end work with Router component - there can be several links but only one router?
+**The match.params() method\***
+
 - Props of the Router component - are the `match()` method
-- We can pass the match prop which will match the routes in the URL
+- We can pass the match prop which will match the routes in the URL to parts of the URL string
   `const name = match.params.name;` or if you want to match the id it will be `match.params.id` and you can assign it to a variable with a suitable name.
 - ArticlePage component now has access to the value of the URL parameter and can make changes to itself accordingly - display these url changes
 
@@ -112,4 +113,32 @@ export default ArticlePage;
 
 ```
 
-Now you can map and filter data and use other array methods accordingly
+Now you can map and filter data and use other array methods in the component.
+
+**Using props with the Links HOC**
+
+```
+import { Link } from "react-router-dom";
+
+import ArticleContentData from "./ArticleContentData";
+
+const ArticlesList = () => (
+  <>
+    <h1>Music Blogs</h1>
+    {ArticleContentData.map((article, key) => (
+      <!-- when mapping use the key in the Link HOC, and then you can dynamically create the URL with the article name -->
+      <Link
+        className="article-list-item"
+        key={key}
+        to={`/article/${article.name}`}
+      >
+        <h3>{article.title}</h3>
+        <!-- The prop article.content is an array of paragraphs, so you can extract the first paragraph, chain the substring method to get 150 characters of the article -->
+        <p>{article.content[0].substring(0, 150)}...</p>
+      </Link>
+    ))}
+  </>
+);
+
+export default ArticlesList;
+```

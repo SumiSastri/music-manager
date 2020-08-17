@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import BlogHome from "./BlogHome";
-import ArticlesList from "./ArticleList";
+import ArticlesList from "./ArticlesList";
 import ArticlePage from "./ArticlePage";
 import "../Blog.css";
 

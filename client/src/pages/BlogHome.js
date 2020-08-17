@@ -5,7 +5,7 @@ const BlogHome = () => {
   return (
     <div>
       <h1>Music Manager Blogs</h1>
-      <Link to="/articles-list">Articles List</Link>
+      <Link to="/articles-list">List of Music Blogs</Link>
       <p>
         Welcome to the music manager blog! Proin congue ligula id risus posuere,
         vel eleifend ex egestas. Sed in turpis leo. Aliquam malesuada in massa
