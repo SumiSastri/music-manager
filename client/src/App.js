@@ -1,17 +1,26 @@
 import React from "react";
-// import logo from "./logo.svg";
-import "./App.css";
-import BlogHome from "./pages/BlogHome";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-function App() {
+import NavBar from "./common/NavBar";
+import AboutPage from "./common/AboutPage";
+import NotFoundPage from "./common/NotFoundPage";
+import BlogIndex from "./pages/BlogIndex";
+
+const App = () => {
   return (
-    <div className="App">
-      <React.Fragment>
-        <h1>Hello Music Manager</h1>
-        <BlogHome />
-      </React.Fragment>
-    </div>
+    <Router>
+      <div className="App">
+        <NavBar />
+      </div>
+      <div id="page-body">
+        <Switch>
+          <Route path="/blogs" component={BlogIndex} exact />
+          <Route path="/about" component={AboutPage} exact />
+          <Route component={NotFoundPage} />
+        </Switch>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
