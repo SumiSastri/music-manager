@@ -10,7 +10,7 @@ const AboutPage = () => (
       place! If you are a manager and looking for new talent check out our blog.
     </h5>
     <div>
-      <Link to="/blogs">List of Music Blogs</Link>
+      <Link to="/blogs">Blog Home Page</Link>
     </div>
     <p>
       Proin congue ligula id risus posuere, vel eleifend ex egestas. Sed in
