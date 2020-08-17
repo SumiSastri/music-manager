@@ -70,3 +70,46 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+## Client-side notes
+
+- URL params front-end work with Router component - there can be several links but only one router?
+- Props of the Router component - are the `match()` method
+- We can pass the match prop which will match the routes in the URL
+  `const name = match.params.name;` or if you want to match the id it will be `match.params.id` and you can assign it to a variable with a suitable name.
+- ArticlePage component now has access to the value of the URL parameter and can make changes to itself accordingly - display these url changes
+
+```
+const ArticlePage = ({ match }) => {
+  const name = match.params.name;
+  return (
+    <div>
+      <h1>This is a {name} article</h1>
+    </div>
+  );
+};
+export default ArticlePage;
+```
+
+Hard-code data in an array of objects and test that it works
+
+```
+import ArticleContentData from "./ArticleContentData";
+
+const ArticlePage = ({ match }) => {
+  const name = match.params.name;
+  <!-- find data from hard-coded, front-end data using array find method -->
+  const article = ArticleContentData.find((article) => article.name === name);
+
+  return (
+    <div>
+    <!-- display the data from the array find method in the jsx -->
+      <h1>{article.title}</h1>
+    </div>
+  );
+};
+export default ArticlePage;
+
+```
+
+Now you can map and filter data and use other array methods accordingly

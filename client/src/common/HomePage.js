@@ -1,18 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-const BlogHome = () => {
+const HomePage = () => {
   return (
     <div>
-      <h1>Music Manager Blogs</h1>
-      <Link to="/articles-list">Articles List</Link>
+      <h2>
+        Welcome to Music Manager, the app for musicians and music producers!
+      </h2>
       <p>
-        Welcome to the music manager blog! Proin congue ligula id risus posuere,
-        vel eleifend ex egestas. Sed in turpis leo. Aliquam malesuada in massa
-        tincidunt egestas. Nam consectetur varius turpis, non porta arcu
-        porttitor non. In tincidunt vulputate nulla quis egestas. Ut eleifend ut
-        ipsum non fringilla. Praesent imperdiet nulla nec est luctus, at sodales
-        purus euismod.
+        Proin congue ligula id risus posuere, vel eleifend ex egestas. Sed in
+        turpis leo. Aliquam malesuada in massa tincidunt egestas. Nam
+        consectetur varius turpis, non porta arcu porttitor non. In tincidunt
+        vulputate nulla quis egestas. Ut eleifend ut ipsum non fringilla.
+        Praesent imperdiet nulla nec est luctus, at sodales purus euismod.
       </p>
       <p>
         Donec vel mauris lectus. Etiam nec lectus urna. Sed sodales ultrices
@@ -36,4 +35,4 @@ const BlogHome = () => {
   );
 };
 
-export default BlogHome;
+export default HomePage;

@@ -1,15 +1,23 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const AboutPage = () => (
   <>
-    <h1>About Music Manager</h1>
+    <h1>We match musicians and managers</h1>
+
+    <h5>
+      If you are a musician and looking for a manager you've come to the right
+      place! If you are a manager and looking for new talent check out our blog.
+    </h5>
+    <div>
+      <Link to="/blogs">Blogs</Link>
+    </div>
     <p>
-      Welcome to the music manager! Proin congue ligula id risus posuere, vel
-      eleifend ex egestas. Sed in turpis leo. Aliquam malesuada in massa
-      tincidunt egestas. Nam consectetur varius turpis, non porta arcu porttitor
-      non. In tincidunt vulputate nulla quis egestas. Ut eleifend ut ipsum non
-      fringilla. Praesent imperdiet nulla nec est luctus, at sodales purus
-      euismod.
+      Proin congue ligula id risus posuere, vel eleifend ex egestas. Sed in
+      turpis leo. Aliquam malesuada in massa tincidunt egestas. Nam consectetur
+      varius turpis, non porta arcu porttitor non. In tincidunt vulputate nulla
+      quis egestas. Ut eleifend ut ipsum non fringilla. Praesent imperdiet nulla
+      nec est luctus, at sodales purus euismod.
     </p>
     <p>
       Donec vel mauris lectus. Etiam nec lectus urna. Sed sodales ultrices

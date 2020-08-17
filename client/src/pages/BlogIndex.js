@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import BlogHome from "./BlogHome";
 import ArticlesList from "./ArticleList";
@@ -7,13 +8,15 @@ import "../Blog.css";
 
 const BlogIndex = () => {
   return (
-    <div className="BlogApp">
-      <React.Fragment>
-        <BlogHome />
-        <ArticlesList />
-        <ArticlePage />
-      </React.Fragment>
-    </div>
+    <Router>
+      <div className="BlogApp">
+        <Switch>
+          <Route path="/blogs" component={BlogHome} exact />
+          <Route path="/articles-list" component={ArticlesList} />
+          <Route path="/article/:name" component={ArticlePage} />
+        </Switch>
+      </div>
+    </Router>
   );
 };
 export default BlogIndex;

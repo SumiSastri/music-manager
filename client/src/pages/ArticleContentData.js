@@ -1,6 +1,6 @@
 const articles = [
   {
-    name: `French hip-hop`,
+    name: `hip-hop`,
     title: `What's new with French hip-hop`,
     content: [
       `Welcome!  You are in the right place if you are looking for whats up with French
@@ -24,7 +24,7 @@ const articles = [
     ],
   },
   {
-    name: `K-pop`,
+    name: `k-pop`,
     title: "Whats going down with K-pop",
     content: [
       `The latest girl and boy bands, whose hot whose not, are Black-Pink still the go
@@ -49,7 +49,7 @@ const articles = [
     ],
   },
   {
-    name: `Is rock-and-roll dead?`,
+    name: `rock-n-roll`,
     title: `Long live rock-n-roll`,
     content: [
       `Whey-hey has the world moved on from rock-n-roll, is rap the new thing round the block. In reality, I'm not sure why people have such a hard time with proin congue
