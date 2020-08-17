@@ -142,3 +142,7 @@ const ArticlesList = () => (
 
 export default ArticlesList;
 ```
+
+**Using Switch and 404**
+
+Switch matches routes exactly, the 404 should be at the end as it will show always if it is on the top.

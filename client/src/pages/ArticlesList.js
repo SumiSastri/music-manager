@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import ArticleContentData from "./ArticleContentData";
+// remove this import and import it back as a prop this is now the child
+// import ArticleContentData from "./ArticleContentData";
+// you are now mapping through the data via the prop articles so it is articles.map()
 
-const ArticlesList = () => (
+const ArticlesList = ({ articles }) => (
   <>
-    <h1>Music Blogs</h1>
-    {ArticleContentData.map((article, key) => (
+    {articles.map((article, key) => (
       <Link
         className="article-list-item"
         key={key}

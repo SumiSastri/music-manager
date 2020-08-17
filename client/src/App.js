@@ -6,7 +6,6 @@ import HomePage from "./common/HomePage";
 import AboutPage from "./common/AboutPage";
 import NotFoundPage from "./common/NotFoundPage";
 import BlogIndex from "./pages/BlogIndex";
-import ArticlePage from "./pages/ArticlePage";
 
 const App = () => {
   return (

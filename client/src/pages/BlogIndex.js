@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import BlogHome from "./BlogHome";
-import ArticlesList from "./ArticlesList";
+import ArticlesListComponent from "./ArticlesListComponent";
 import ArticlePage from "./ArticlePage";
 import "../Blog.css";
 
@@ -12,7 +12,7 @@ const BlogIndex = () => {
       <div className="BlogApp">
         <Switch>
           <Route path="/blogs" component={BlogHome} exact />
-          <Route path="/articles-list" component={ArticlesList} />
+          <Route path="/articles-list" component={ArticlesListComponent} />
           <Route path="/article/:name" component={ArticlePage} />
         </Switch>
       </div>
