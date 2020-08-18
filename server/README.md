@@ -43,3 +43,14 @@ Set up Express `server.js` test home route working and app listening on home rou
 Add mongoDB connection test in `server.js` and test with real username and password in the .env file
 Data security -
 Create MongoDB data-model - type validation
+
+**PostMan**
+
+Testing upvote routes
+
+```
+http://localhost:5000/api-articles/rock-n-roll/upvote
+http://localhost:5000/api-articles/k-pop/upvote
+http://localhost:5000/api-articles/hip-hop/upvote
+
+```

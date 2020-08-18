@@ -26,9 +26,27 @@ const rateLimter = new rateLimit({
   delayMs: 0,
 });
 
+const articlesInfo = require("./mockData/mockArticlesUpvoteData");
+
 app.get("/", (req, res) => {
   res.send("your app home route is working");
 });
+
+app.get("/api-articles", (req, res) => {
+  res.send("your api-articles end-point is working");
+});
+
+app.post("/api-articles/:name/upvote", (req, res) => {
+  const articleName = req.params.name;
+
+  articlesInfo[articleName].upvotes += 1;
+  res
+    .status(200)
+    .send(
+      `${articleName} now has ${articlesInfo[articleName].upvotes} upvotes`
+    );
+});
+
 const dBurl = process.env.DB_CONNECTION;
 mongoose.connect(
   dBurl,
