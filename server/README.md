@@ -46,11 +46,19 @@ Create MongoDB data-model - type validation
 
 **PostMan**
 
-Testing upvote routes
+Testing upvote routes with mock data hardcoded server-side, using the `request.params.name` method and assigning it to a variable `const articleName = req.params.name;`
 
 ```
 http://localhost:5000/api-articles/rock-n-roll/upvote
 http://localhost:5000/api-articles/k-pop/upvote
 http://localhost:5000/api-articles/hip-hop/upvote
 
+```
+
+Testing add-comment routes with mock data in request body, destructuring the `req.body()` callback and assigning it to a variable `const { username, text } = req.body;`
+
+```
+http://localhost:5000/api-articles/rock-n-roll/add-comment
+http://localhost:5000/api-articles/k-pop/add-comment
+http://localhost:5000/api-articles/hip-hop/add-comment
 ```

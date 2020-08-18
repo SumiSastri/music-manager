@@ -47,6 +47,15 @@ app.post("/api-articles/:name/upvote", (req, res) => {
     );
 });
 
+app.post("/api-articles/:name/add-comment", (req, res) => {
+  const { username, text } = req.body;
+  const articleName = req.params.name;
+  // push the request body info
+  articlesInfo[articleName].comments.push({ username, text });
+
+  res.status(200).send(articlesInfo[articleName]);
+});
+
 const dBurl = process.env.DB_CONNECTION;
 mongoose.connect(
   dBurl,
