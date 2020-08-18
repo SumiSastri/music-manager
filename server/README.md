@@ -3,7 +3,7 @@
 Create a server-side folder, cd into the folder and install node packages - `npm init -y`
 
 Then install project and dev dependencies
-`npm install --save-dev @babel/core @babel/node @babel/cli @babel/preset-env @babel-preset-stage-0 && npm install express nodemon cors dotenv body-parser mongoose`
+`npm install --save-dev @babel/core @babel/node babel/cli babel/preset-env babel-preset-stage-0 && npm install express nodemon cors dotenv body-parser mongoose helmet`
 
 [Babel Documentation - main](https://babeljs.io/docs/en/)
 [Documentation for node](https://babeljs.io/docs/en/babel-node)
@@ -40,9 +40,11 @@ Set up Express `server.js` test home route working and app listening on home rou
 `npm install express-rate-limit` protection against denial of service attacks - only 100 requests per IP in 15 minutes.
 
 **MongoDB**
-Add mongoDB connection test in `server.js` and test with real username and password in the .env file
-Data security -
-Create MongoDB data-model - type validation
+Add mongoDB connection test in `server.js` and test with real username and password in the .env file, add it below all server security imports just above the `app.listen()` method.
+
+1. Create schemas for data-security, validation of types.
+2. Move tested routes to controllers if you have created and tested them with hard-coded data, if not set up the api-controllers and test them with postman and import the validated data schema
+3. Now import the controllers into the routes
 
 **PostMan**
 

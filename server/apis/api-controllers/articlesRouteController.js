@@ -1,5 +1,11 @@
-// move routes from server to router, change app() methods to router() methods
+// STEP 1: Import mongoose and the data schema
+import mongoose from "mongoose";
+import { ArticleSchema } from "../../data-models/musicianDataModel";
 
+// STEP 2: Intatiate the schema
+const ArticlesInfo = mongoose.model("Article", ArticleSchema);
+
+// STEP3: move CRUD routes from server.js to controllers file
 // POST @/api-articles/:name/upvote to add upvotes to individual articles
 app.post("/api-articles/:name/upvote", (req, res) => {
   const articleName = req.params.name;

@@ -26,10 +26,13 @@ const rateLimter = new rateLimit({
   delayMs: 0,
 });
 
+const musicianRoutes = require("./apis/api-routes/musicianRoutes");
 const articlesInfo = require("./mockData/mockArticlesUpvoteData");
 
-app.get("/", (req, res) => {
-  res.send("your app home route is working");
+musicianRoutes(app);
+
+app.get("/api-musicians", (req, res) => {
+  res.send("your api-musicians end-point is working");
 });
 
 app.get("/api-articles", (req, res) => {
