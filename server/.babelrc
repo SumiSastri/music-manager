@@ -1,3 +1,4 @@
 {
-  "presets": ["@babel/presets-env", "stage-0"]
+  "presets": ["env", "stage-0"],
+  "modules": "common.js"
 }

@@ -1,9 +1,8 @@
-/*jshint esversion: 6 */
 import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
 
-export const MusicianSchema = new Schema({
+export const PlayerSchema = new Schema({
   firstName: {
     type: String,
     required: true,
