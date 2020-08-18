@@ -3,7 +3,7 @@
 Create a server-side folder, cd into the folder and install node packages - `npm init -y`
 
 Then install project and dev dependencies
-`npm install --save-dev @babel/core @babel/node babel/cli babel/preset-env babel-preset-stage-0 && npm install express nodemon cors dotenv body-parser mongoose helmet`
+`npm install --save-dev @babel/core @babel/node babel/cli babel/preset-env babel-preset-stage-0 && npm install express nodemon cors dotenv body-parser mongoose helmet express-rate-limit`
 
 [Babel Documentation - main](https://babeljs.io/docs/en/)
 [Documentation for node](https://babeljs.io/docs/en/babel-node)
@@ -44,7 +44,10 @@ Add mongoDB connection test in `server.js` and test with real username and passw
 
 1. Create schemas for data-security, validation of types.
 2. Move tested routes to controllers if you have created and tested them with hard-coded data, if not set up the api-controllers and test them with postman and import the validated data schema
-3. Now import the controllers into the routes
+3. Now import the controllers into the routes to configure the routes
+4. Import the configured routes into the Express server
+5. Test data persists with the post request
+6. Now write the get request and see if you get the data in the browser
 
 **PostMan**
 

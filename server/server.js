@@ -9,7 +9,6 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const helmet = require("helmet");
-const rateLimit = require("express-rate-limit");
 
 app.use(helmet());
 app.use(cors());
@@ -21,13 +20,14 @@ app.use(
   })
 );
 
-const rateLimter = new rateLimit({
-  windowsMs: 15 * 60 * 1000,
-  max: 100,
-  delayMs: 0,
-});
-
 const articlesInfo = require("./mockData/mockArticlesUpvoteData");
+const playerRoutes = require("./apis/api-config-routes/playerRoutes");
+
+playerRoutes(app);
+
+// app.get("/api-players", (req, res) => {
+//   res.send("your api-players end-point is working");
+// });
 
 app.get("/api-articles", (req, res) => {
   res.send("your api-articles end-point is working");
