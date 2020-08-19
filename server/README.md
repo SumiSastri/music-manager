@@ -39,15 +39,31 @@ Set up Express `server.js` test home route working and app listening on home rou
 [Documentation](helmetjs.github.io) and on [npm](https://www.npmjs.com/package/helmet)
 `npm install express-rate-limit` protection against denial of service attacks - only 100 requests per IP in 15 minutes.
 
-**MongoDB**
-Add mongoDB connection test in `server.js` and test with real username and password in the .env file, add it below all server security imports just above the `app.listen()` method.
+**MongoDB - Mongoose as an ORM**
+Add mongoDB connection test in `server.js` and test with real username and password in the .env file, add it below all server security imports just above the `app.listen()` method. Use Mongoose as an ORM for a further level of data-protection.
 
 1. Create schemas for data-security, validation of types.
-2. Move tested routes to controllers if you have created and tested them with hard-coded data, if not set up the api-controllers and test them with postman and import the validated data schema
-3. Now import the controllers into the routes to configure the routes
-4. Import the configured routes into the Express server
-5. Test data persists with the post request
-6. Now write the get request and see if you get the data in the browser
+
+2. Controllers modules with functions that interact with the database. Requests to the API are sent to the database with a configured route. The controller executes the function in the database. You can start working on routes in the controllers directly, but can be difficult to test as you need to se up models and routes. Therefore, if you have tested routes with mocks or hard-coded data in the back-end with routes written directly on the server, refactor and move these functions to the controllers.
+
+3. Now import the controllers into the routes to configure the routes. The controllers need to be connected to the configured routes so that when we're calling the route from the request, it executes the controller functions.
+
+4. In the Express server, we only need to import the configured routes and use them.
+
+```
+const playerRoutes = require("./apis/api-config-routes/playerRoutes");
+playerRoutes(app);
+```
+
+In the router create a variable that will hold the routes and then pass the app - the Express app method as an argument - as above. We import the variable and router files, use the app as an arg of the routes, the CRUD requests and responses will now work and connect with MongoDb without cluttering up the Express server. It also provides another layer of data-security.
+
+5. Test data persists with the post request - this way you can seed your database
+
+6. Now write the get request and see if you get the seeded data in the browser
+
+7. You can also test the get data by unique Id, update with a put call and delete with a delete call in Postman and test that the data persists in the database
+
+NOTE: If your compiler is not working - for some reason my babel compilers are not - you will need to use nodeJS import and export of modules, and require filepaths, libraries.
 
 **PostMan**
 
@@ -67,3 +83,8 @@ http://localhost:5000/api-articles/rock-n-roll/add-comment
 http://localhost:5000/api-articles/k-pop/add-comment
 http://localhost:5000/api-articles/hip-hop/add-comment
 ```
+
+Routes for playerswith and Id generated from MongoDB - used to test find, update
+http://localhost:5000/api-players/5f3c394dcf275808b5c1cf47
+
+For delete used some bad requests and data set up
