@@ -25,10 +25,6 @@ const playerRoutes = require("./apis/api-config-routes/playerRoutes");
 
 playerRoutes(app);
 
-// app.get("/api-players", (req, res) => {
-//   res.send("your api-players end-point is working");
-// });
-
 app.get("/api-articles", (req, res) => {
   res.send("your api-articles end-point is working");
 });

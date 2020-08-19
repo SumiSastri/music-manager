@@ -3,7 +3,7 @@
 Create a server-side folder, cd into the folder and install node packages - `npm init -y`
 
 Then install project and dev dependencies
-`npm install --save-dev @babel/core @babel/node babel/cli babel/preset-env babel-preset-stage-0 && npm install express nodemon cors dotenv body-parser mongoose helmet express-rate-limit`
+`npm install --save-dev @babel/core @babel/node @babel/preset-env @babel/cli @babel/preset-stage-0 && npm install express nodemon cors dotenv body-parser mongoose helmet express-rate-limit`
 
 [Babel Documentation - main](https://babeljs.io/docs/en/)
 [Documentation for node](https://babeljs.io/docs/en/babel-node)

@@ -6,7 +6,7 @@ const PlayerModel = require("../../data-models/playerModel");
 const Player = mongoose.model("Player", PlayerModel);
 
 // export const addNewPlayer = (req, res) => {
-const addNewPlayer = (req, res) => {
+module.exports = addNewPlayer = (req, res) => {
   let newPlayer = new Player(req.body);
 
   newPlayer.save((err, AddPlayer) => {
@@ -17,7 +17,7 @@ const addNewPlayer = (req, res) => {
   });
 };
 
-const getPlayers = (req, res) => {
+module.exports = getPlayers = (req, res) => {
   Player.find({}, (err, PlayerList) => {
     if (err) {
       res.send(err);
@@ -25,5 +25,3 @@ const getPlayers = (req, res) => {
     res.json(PlayerList);
   });
 };
-
-(module.exports = addNewPlayer), getPlayers;
