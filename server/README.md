@@ -91,30 +91,19 @@ Once again if you are using a VPN you may have to check that the IP is added and
 Testing upvote routes with mock data hardcoded server-side, using the `request.params.name` method and assigning it to a variable `const articleName = req.params.name;`
 
 ```
-http://localhost:5000/api-articles/rock-n-roll/upvote
-http://localhost:5000/api-articles/k-pop/upvote
-http://localhost:5000/api-articles/hip-hop/upvote
+http://localhost:5000/api-content/rock-n-roll/upvote
+http://localhost:5000/api-content/k-pop/upvote
+http://localhost:5000/api-content/hip-hop/upvote
 
 ```
 
 Testing add-comment routes with mock data in request body, destructuring the `req.body()` callback and assigning it to a variable `const { username, text } = req.body;`
 
 ```
-http://localhost:5000/api-articles/rock-n-roll/add-comment
-http://localhost:5000/api-articles/k-pop/add-comment
-http://localhost:5000/api-articles/hip-hop/add-comment
+http://localhost:5000/api-content/rock-n-roll/add-comment
+http://localhost:5000/api-content/k-pop/add-comment
+http://localhost:5000/api-content/hip-hop/add-comment
 ```
 
-Routes for playerswith and Id generated from MongoDB - used to test find, update
+Routes for players with and Id generated from MongoDB - used to test find, update
 http://localhost:5000/api-players/5f3c394dcf275808b5c1cf47
-
-For delete used some bad requests and data set up
-
-Refactoring:
-This is messy - I tried to move the functions to controllers/routes but did not know how to refactor local db to cloud collection - will refactor again when I figure that out.
-
-- set the object to the new value
-- Use findone method using MongoDB syntax
-- Then we use the update method
-- Then we use the set method - to change the value in the callback arg - MongoDB has a special syntax for this. Inside this object we have to have a property in between single quotes, that's dollar sign set, and the value of this is going to be an object with the actual changes we want to make. In this case we want to say upvotes and set it equal to articleInfo.upvotes + 1.
-- To get the updated version of the article we just modified, we need to assign it to a variable to acecess it later. So we'll create a new constant called updatedArticleInfo. We can then send this updated article info back to the client using res.status(200).json with our updated article info.
