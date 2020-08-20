@@ -92,3 +92,13 @@ Routes for playerswith and Id generated from MongoDB - used to test find, update
 http://localhost:5000/api-players/5f3c394dcf275808b5c1cf47
 
 For delete used some bad requests and data set up
+
+Refactoring:
+This is messy - I tried to move the functions to controllers/routes but did not know how to refactor local db to cloud collection - will refactor again when I figure that out.
+
+- set the object to the new value
+-
+- The first thing we're going to want to do is do a database query using MongoShell syntax
+- Then we use the update method
+- Then we use the set method - to change the value in the callback arg - MongoDB has a special syntax for this. Inside this object we have to have a property in between single quotes, that's dollar sign set, and the value of this is going to be an object with the actual changes we want to make. In this case we want to say upvotes and set it equal to articleInfo.upvotes + 1.
+- To get the updated version of the article we just modified, we need to assign it to a variable to acecess it later. So we'll create a new constant called updatedArticleInfo. We can then send this updated article info back to the client using res.status(200).json with our updated article info.

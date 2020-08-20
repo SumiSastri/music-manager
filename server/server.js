@@ -22,7 +22,6 @@ app.use(
 );
 
 const playerRoutes = require("./apis/api-config-routes/playerRoutes");
-
 playerRoutes(app);
 
 // BLOG UPVOTES AND COMMENTS WITH LOCAL DB
