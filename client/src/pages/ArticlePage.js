@@ -3,6 +3,8 @@ import React from "react";
 import ArticlesList from "./ArticlesList";
 import ArticleContentData from "./ArticleContentData";
 import NotFoundPage from "../common/NotFoundPage";
+import ContentUpvotesComponent from "./ContentUpvotesComponent";
+import CommentsListComponent from "./CommentsListComponent";
 
 const ArticlePage = ({ match }) => {
   const name = match.params.name;
@@ -18,9 +20,11 @@ const ArticlePage = ({ match }) => {
   return (
     <>
       <h1>{article.title}</h1>
+      <ContentUpvotesComponent />
       {article.content.map((paragraph, key) => (
         <p key={key}>{paragraph}</p>
       ))}
+      <CommentsListComponent />
       <h3>Other Blogs:</h3>
       <ArticlesList articles={otherArticles} />
     </>

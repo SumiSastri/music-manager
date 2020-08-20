@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Music Manager",
+  "name": "An App for Musicians and Managers",
   "icons": [
     {
       "src": "favicon.ico",

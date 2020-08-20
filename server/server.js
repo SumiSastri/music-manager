@@ -24,7 +24,7 @@ app.use(
 const playerRoutes = require("./apis/api-config-routes/playerRoutes");
 playerRoutes(app);
 
-// BLOG UPVOTES AND COMMENTS WITH LOCAL DB
+// BLOG UPVOTES AND COMMENTS WITH LOCAL DB -
 const withDB = async (operations, res) => {
   try {
     const client = await MongoClient.connect("mongodb://localhost:27017", {
@@ -36,7 +36,9 @@ const withDB = async (operations, res) => {
 
     client.close();
   } catch (error) {
-    res.status(500).json({ message: "Error connecting to db", error });
+    res
+      .status(500)
+      .json({ message: "Error connecting to content-feedback-db", error });
   }
 };
 
