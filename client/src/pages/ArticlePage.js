@@ -17,6 +17,7 @@ const ArticlePage = ({ match }) => {
     const fetchData = async () => {
       // response from server
       const result = await fetch(`/api-content/${name}`);
+      console.log(result);
       const body = await result.json();
       // set state to the response body of the api-call
       setArticleInfo(body);
@@ -34,11 +35,13 @@ const ArticlePage = ({ match }) => {
   return (
     <>
       <h1>{article.title}</h1>
+      <p>{articleInfo.upvotes}</p>
       <ContentUpvotesComponent />
       {article.content.map((paragraph, key) => (
         <p key={key}>{paragraph}</p>
       ))}
-      <CommentsListComponent />
+      <CommentsListComponent comments={articleInfo.comments} />
+
       <h3>Other Blogs:</h3>
       <ArticlesList articles={otherArticles} />
     </>
