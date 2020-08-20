@@ -1,5 +1,5 @@
 import React from "react";
-// we are getting comments passed down as a prop from the Article Page component
+// we are getting comments passed down as a prop from the Article Page component, the prop takes the articleInfo.comments from the useState setting of state to articleInfo in the ArticlePage - this is the parent and child is the Article page
 const CommentsList = ({ comments }) => (
   <>
     <h3>Comments:</h3>

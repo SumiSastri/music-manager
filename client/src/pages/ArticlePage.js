@@ -35,8 +35,12 @@ const ArticlePage = ({ match }) => {
   return (
     <>
       <h1>{article.title}</h1>
-      <p>{articleInfo.upvotes}</p>
-      <ContentUpvotesComponent />
+
+      <ContentUpvotesComponent
+        articleName={name}
+        upvotes={articleInfo.upvotes}
+        setArticleInfo={setArticleInfo}
+      />
       {article.content.map((paragraph, key) => (
         <p key={key}>{paragraph}</p>
       ))}
