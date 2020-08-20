@@ -1,12 +1,21 @@
-// STEP 1: import the post route, you do not need mongoose or react as you are using vanilla node import and module.exports.
-import {} from "../api-controllers/articlesRouteController";
+// STEP1: import the controller functions for configuration by routes module
+const createNewContent = require("../api-route-controllers/contentControllers");
+// const getContent = require("../api-route-controllers/contentControllers");
+// const getContentById = require("../api-route-controllers/contentControllers");
+// const deleteContent = require("../api-route-controllers/contentControllers");
 
-// here app arg refers to the Express router, the function creates the routes from the controllers
-const musicianRoutes = (app) => {
-  app
-    .route("/musicians")
-    // POST endpoint
-    .post(addNewMusician);
+// STEP2: Create and chain generic routes and test them - start with post to seed db
+const contentRoutes = (app) => {
+  app.route("/api-content").post(createNewContent);
+
+  //   .get(getContent)
+  // STEP5: Create and chain routes for data by unique id access
+  //   app
+  //     .route("/api-players/:PlayerId")
+  //     .get(getContentById)
+  //     .put(UpdateContent)
+  //     .delete(deleteContent);
 };
-// you are exporting this with ES6 to the Express App, server.js
-export default musicianRoutes;
+
+// STEP3: export default the route, use it in the server by passing app as arg into the route
+module.exports = contentRoutes;

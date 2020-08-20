@@ -5,6 +5,7 @@ const PlayerModel = require("../../data-models/playerModel");
 
 const Player = mongoose.model("Player", PlayerModel);
 
+// POST @api-players
 // export const addNewPlayer = (req, res) => {
 module.exports = addNewPlayer = (req, res) => {
   // the new player is created based on the Player model in the mongoose schema

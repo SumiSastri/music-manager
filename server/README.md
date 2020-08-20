@@ -65,6 +65,10 @@ In the router create a variable that will hold the routes and then pass the app 
 
 NOTE: If your compiler is not working - for some reason my babel compilers are not - you will need to use nodeJS import and export of modules, and require filepaths, libraries.
 
+Setting up the localhost on the local machine:
+To connect to your db in the mongo shell run mongo to get the local version up and running and listening. Then run mongo + the uri you have saved in your .env file
+Once again if you are using a VPN you may have to check that the IP is added and whitelisted
+
 **PostMan**
 
 Testing upvote routes with mock data hardcoded server-side, using the `request.params.name` method and assigning it to a variable `const articleName = req.params.name;`
