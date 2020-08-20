@@ -39,8 +39,25 @@ Set up Express `server.js` test home route working and app listening on home rou
 [Documentation](helmetjs.github.io) and on [npm](https://www.npmjs.com/package/helmet)
 `npm install express-rate-limit` protection against denial of service attacks - only 100 requests per IP in 15 minutes.
 
-**MongoDB - Mongoose as an ORM**
-Add mongoDB connection test in `server.js` and test with real username and password in the .env file, add it below all server security imports just above the `app.listen()` method. Use Mongoose as an ORM for a further level of data-protection.
+**MongoDB**
+Add mongoDB connection test in `server.js` and test with real username and password in the `.env` file, add it below all server security imports just above the `app.listen()` method.
+
+- Connect to MongoDB either directly in the cloud with the dot env file OR as a localhost - 27017 connection.
+  NOTE: This is riddled with access challenges - The bug-fix I am following that is working on this project and the current MaC - REMOVING the temp socket -
+
+```
+sudo rm /tmp/mongodb-27017.sock
+```
+
+Then ensuring there are read-write access on the local file
+
+```
+sudo chmod -R a+wxr /data
+```
+
+Then only running `mongo` not `mongod`
+
+Use Mongoose as an ORM for a further level of data-protection - I am running both MongoClient - direct access to the db and Mongoose to test the difference.
 
 1. Create schemas for data-security, validation of types.
 
