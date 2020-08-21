@@ -11,6 +11,7 @@ button {
   color: white;
   border-radius: 8px;
   cursor: pointer;
+  outline: none;
 }
 
 h3,

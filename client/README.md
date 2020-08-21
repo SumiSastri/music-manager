@@ -33,7 +33,7 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 ## Client-side notes
 
-**The match.params() method\***
+**The match.params() method**
 
 - Props of the Router component - are the `match()` method
 - We can pass the match prop which will match the routes in the URL to parts of the URL string
@@ -110,3 +110,9 @@ Switch matches routes exactly, the 404 should be at the end as it will show alwa
 **Using Fetch API and Internet Explorer**
 
 Fetch is inbuilt but for Internet explorer needs the package `whatwg-fetch`, it is a polfill and to make this work on Internet Explorer import it in `index.js` above the react imports `import "whatwg-fetch"`
+
+**Using React-Hooks**
+
+Instead of class components, we are using the `useState` for local data storage and `useEffect` for back-end API calls.
+
+The two stateful components are the main ArticlePage - state is then destructured and passed as props to parent components. The parent components use state to set functions and the components are rendered with their props in the child component. The child component in the props references state and the props to render.

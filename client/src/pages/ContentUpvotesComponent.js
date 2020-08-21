@@ -1,5 +1,4 @@
 import React from "react";
-import Button from "../common/Button";
 
 // This is the parent component, so we take out the test <p>{articleInfo.upvotes}</p> from the articles page as we know the data is flowing and write the code here to pass the information dynamically by deconstructing state - setArticleInfo, the articleName and the upvotes - we now go back to the articles page and set these as props articleName={name} upvotes={articleInfo.upvotes} setArticleInfo={setArticleInfo}
 const ContentUpvotesComponent = ({ articleName, upvotes, setArticleInfo }) => {

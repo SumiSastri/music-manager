@@ -5,6 +5,7 @@ import ArticleContentData from "./ArticleContentData";
 import NotFoundPage from "../common/NotFoundPage";
 import ContentUpvotesComponent from "./ContentUpvotesComponent";
 import CommentsListComponent from "./CommentsListComponent";
+import CommentFormComponent from "./CommentFormComponent";
 
 const ArticlePage = ({ match }) => {
   const name = match.params.name;
@@ -44,8 +45,8 @@ const ArticlePage = ({ match }) => {
       {article.content.map((paragraph, key) => (
         <p key={key}>{paragraph}</p>
       ))}
+      <CommentFormComponent />
       <CommentsListComponent comments={articleInfo.comments} />
-
       <h3>Other Blogs:</h3>
       <ArticlesList articles={otherArticles} />
     </>
