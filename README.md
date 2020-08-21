@@ -21,4 +21,14 @@ The advantages of MEAN/ MERN- (Mongo-Express-Angular (or React)-Node) stack with
 - npm init -y and install all other dev dependencies detailed in the back-end `README.md` documentation
 
 - start scripts `npm run start` client localhost:3000 server localhost:5000
-- or `nodemon` in watch mode
+- or `nodemon` in watch mode server-side
+
+Experimentation:
+
+I wanted to revise async await, the Fetch Api, React Hooks, Progressive Web Apps and see if I could get them all to work with MongoDB and server-side security.
+
+Challenges:
+
+MongoDB set up in the local machine was not stable, compared to the cloud based version. To get mongo to run locally, I had to debug several times.
+The steps to move my mongo-directory in this de-bug blog were the most useful
+[https://stackoverflow.com/questions/12831939/couldnt-connect-to-server-127-0-0-127017]

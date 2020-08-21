@@ -45,7 +45,10 @@ const ArticlePage = ({ match }) => {
       {article.content.map((paragraph, key) => (
         <p key={key}>{paragraph}</p>
       ))}
-      <CommentFormComponent />
+      <CommentFormComponent
+        articleName={name}
+        setArticleInfo={setArticleInfo}
+      />
       <CommentsListComponent comments={articleInfo.comments} />
       <h3>Other Blogs:</h3>
       <ArticlesList articles={otherArticles} />
