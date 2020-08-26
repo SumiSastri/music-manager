@@ -4,6 +4,19 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Front-end dependencies
 
 `npm install --save whatwg-fetch react-router-dom`
+Add materialise CSS to links to `index.html` file
+
+```
+<link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+```
+
+and JavaScript to the file above the body closing tag.
+
+` <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>`
+Website and docs[https://material-ui.com/]
 
 ## Available Scripts
 
