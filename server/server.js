@@ -27,9 +27,9 @@ playerRoutes(app);
 const crmRoutes = require("./apis/routes-config/crmRoutes");
 crmRoutes(app);
 
-app.get(`/api-players`, (req, res) => {
-  res.send(`api-players working`);
-});
+// app.get(`/api-players`, (req, res) => {
+//   res.send(`api-players working`);
+// });
 
 const dBUri = process.env.DB_CONNECTION;
 mongoose.connect(

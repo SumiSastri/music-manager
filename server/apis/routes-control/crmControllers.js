@@ -14,12 +14,27 @@ module.exports = addNewUser = (req, res) => {
     .save()
     .then((savedUser) => res.status(200).json(savedUser))
     .catch((err) => res.status(422).json({ message: err }));
+};
+module.exports = getUsers = (req, res) => {
+  User.find({}).then((userList) => res.json(userList));
+};
 
-  //   .save((err, SaveUser) => {
-  //     if (err) {
-  //       res.send(err, `error saving User data`);
-  //     }
-  //     res.status().json(SaveUser, `success new User saved to database`);
-  //     // express deprecated res.json(status, obj): Use res.status(status).json(obj)
-  //   });
+// module.exports = updateUser = (req, res, next) => {
+//   // .route("/api-users/:userId")
+//   User.findByIdAndUpdate({ _id: req.params.userId }, req.body, {
+//     new: true,
+//     useFindAndModify: false,
+//   }).then(function (user) {
+//     res.send(user);
+//   });
+// };
+
+module.exports = deleteUser = (req, res) => {
+  // .route("/api-users/:userId")
+  User.findByIdAndRemove(
+    { _id: req.params.userId },
+    { useFindAndModify: false }
+  ).then(function (user) {
+    res.send(user);
+  });
 };

@@ -13,9 +13,6 @@ module.exports = PlayerModel = new Schema({
     type: String,
     required: false,
   },
-  _id: {
-    type: String,
-  },
   upvotes: {
     type: Number,
     required: false,

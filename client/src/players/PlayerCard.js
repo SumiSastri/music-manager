@@ -1,5 +1,5 @@
 import React from "react";
-
+import { logo } from "../assets/hatchful-music-manager/logo_transparent.png";
 const PlayerCard = (props) => {
   return (
     <div className="container-fluid">
@@ -8,7 +8,7 @@ const PlayerCard = (props) => {
         <div className="col s12">
           <div className="card">
             <div className="card-image">
-              <img src="" alt="" />
+              <img src={logo} alt="music-manager logo" />
               <span className="card-title"></span>
             </div>
             <div className="card-content">

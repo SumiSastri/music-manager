@@ -7,18 +7,23 @@ const Schema = mongoose.Schema;
 module.exports = UserModel = new Schema({
   firstName: {
     type: String,
+    default: "Jane or John",
     required: false,
   },
   lastName: {
     type: String,
+    default: "Doe",
     required: false,
   },
   email: {
     type: String,
+    default: "email@email.com",
     required: true,
   },
   phone: {
     type: Number,
+    default: 1234,
+    required: false,
   },
   created_date: {
     type: Date,
