@@ -13,49 +13,47 @@ module.exports = PlayerModel = new Schema({
     type: String,
     required: false,
   },
-  email: {
+  _id: {
     type: String,
-    required: false,
   },
-  phone: {
+  upvotes: {
     type: Number,
     required: false,
   },
-  iscoach: {
+  comments: {
+    type: Array,
+    required: false,
+  },
+  isSoloArtist: {
     type: Boolean,
     default: false,
     required: false,
   },
-  team: {
+  bandName: {
     type: String,
     required: false,
   },
-  speed: {
+  twitterFollowers: {
     type: Number,
     enum: [1, 2, 3],
     required: false,
   },
-  strength: {
+  fBFollowers: {
     type: Number,
     enum: [1, 2, 3],
     required: false,
   },
-  endurance: {
+  instaFollowers: {
     type: Number,
     enum: [1, 2, 3],
     required: false,
   },
-  ability: {
+  youTubeFollowers: {
     type: Number,
     enum: [1, 2, 3],
     required: false,
   },
-  techniques: {
-    type: Number,
-    enum: [1, 2, 3],
-    required: false,
-  },
-  tactical: {
+  tkTkFollowers: {
     type: Number,
     enum: [1, 2, 3],
     required: false,

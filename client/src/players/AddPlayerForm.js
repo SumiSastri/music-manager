@@ -1,6 +1,6 @@
 import React from "react";
 
-const PlayersForm = () => {
+const AddPlayerForm = () => {
   return (
     <div className="container-fluid">
       <h5>Player Form placeholder</h5>
@@ -36,4 +36,4 @@ const PlayersForm = () => {
     </div>
   );
 };
-export default PlayersForm;
+export default AddPlayerForm;

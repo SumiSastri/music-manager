@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import ArticlesList from "./ArticlesList";
 // this article content is still hard-coded it can come from the back-end as well
 import ArticleContentData from "./ArticleContentData";
+import ArticlesList from "./ArticlesList";
 import NotFoundPage from "../common/NotFoundPage";
 import ContentUpvotesComponent from "./ContentUpvotesComponent";
 import CommentsListComponent from "./CommentsListComponent";
@@ -35,7 +35,7 @@ const ArticlePage = ({ match }) => {
   // now that data is fetched create parent-child components, the parent components hold the functions, this is the child component - it renders from the parent - the two components are the content-upvotes-component,the comments-list-component as well as the controlled form component for the user to add comments. Props are passed from the parent to the child and the child component's (this article page) job is to render state and props.
   return (
     <>
-      <h1>{article.title}</h1>
+      <h3>{article.title}</h3>
 
       <ContentUpvotesComponent
         articleName={name}
@@ -50,7 +50,6 @@ const ArticlePage = ({ match }) => {
         setArticleInfo={setArticleInfo}
       />
       <CommentsListComponent comments={articleInfo.comments} />
-      <h3>Other Blogs:</h3>
       <ArticlesList articles={otherArticles} />
     </>
   );

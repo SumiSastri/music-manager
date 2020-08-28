@@ -4,7 +4,7 @@
   "description": "Create a server-side folder, cd into the folder and install node packages - `npm init -y`",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon ./index.js --exec babel-node -e js",
+    "start": "nodemon ./server.js --exec babel-node -e js",
     "debug": "DEBUG=express:* nodemon ./server.js --exec babel-node -e js"
   },
   "keywords": [],
@@ -27,7 +27,7 @@
     "express": "^4.17.1",
     "express-rate-limit": "^5.1.3",
     "helmet": "^4.1.0",
-    "mongoose": "^5.10.0",
+    "mongoose": "^5.10.1",
     "nodemon": "^2.0.4"
   }
 }

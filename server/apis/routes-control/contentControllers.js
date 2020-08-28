@@ -1,6 +1,6 @@
 // STEP 1: Import the ORM and the data model
 const mongoose = require("mongoose");
-const ContentModel = require("../../data-models/contentModel");
+const ContentModel = require("../../data/data-models/contentModel");
 
 // STEP2: Instantiate the mongoose schema constructor method
 const Content = mongoose.model("Content", ContentModel);

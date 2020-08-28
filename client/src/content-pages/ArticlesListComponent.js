@@ -6,7 +6,7 @@ import ArticleContentData from "./ArticleContentData";
 // it is the parent page that is displayed in the index page
 const ArticlesListComponent = () => (
   <>
-    <h1>Music Blog</h1>
+    <h2>Music Blog</h2>
     <ArticlesList articles={ArticleContentData} />
   </>
 );

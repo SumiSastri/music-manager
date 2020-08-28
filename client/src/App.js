@@ -6,7 +6,7 @@ import HomePage from "./common/HomePage";
 import AboutPage from "./common/AboutPage";
 import NotFoundPage from "./common/NotFoundPage";
 import BlogIndex from "./content-pages/BlogIndex";
-import PlayerIndex from "./players/PlayersIndex";
+import PlayerIndex from "./players/PlayerIndex";
 
 const App = () => {
   return (
