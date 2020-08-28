@@ -15,7 +15,8 @@ const PlayerList = ({ playerInfo, updateCurrentPlayer, currentPlayerInfo }) => {
               key={currentPlayerInfo._id}
               onClick={(event) => updateCurrentPlayer(currentPlayerInfo)}
             >
-              {currentPlayerInfo.firstName} {currentPlayerInfo.lastName}
+              {currentPlayerInfo.firstName}
+              {currentPlayerInfo.lastName}
             </a>
           ))}
         </li>

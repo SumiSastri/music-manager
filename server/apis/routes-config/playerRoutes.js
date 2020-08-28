@@ -4,6 +4,7 @@
 
 const addNewPlayer = require("../routes-control/playerControllers");
 const getPlayers = require("../routes-control/playerControllers");
+const getPlayerWithId = require("../routes-control/playerControllers");
 const updatePlayer = require("../routes-control/playerControllers");
 const deletePlayer = require("../routes-control/playerControllers");
 
@@ -15,7 +16,11 @@ const playerRoutes = (app) => {
     // POST endpoint CReate player
     .post(addNewPlayer);
 
-  app.route("/api-players/:playerId").put(updatePlayer).delete(deletePlayer);
+  app
+    .route("/api-players/:playerId")
+    .get(getPlayerWithId)
+    .put(updatePlayer)
+    .delete(deletePlayer);
 };
 
 // export default playerRoutes;

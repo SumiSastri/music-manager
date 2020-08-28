@@ -1,7 +1,8 @@
 // import { addNewUser } from "../routes-control/crmControllers";
 
 const addNewUser = require("../routes-control/crmControllers");
-// const updateUser = require("../routes-control/crmControllers");
+const getUsers = require("../routes-control/crmControllers");
+const updateUser = require("../routes-control/crmControllers");
 const deleteUser = require("../routes-control/crmControllers");
 
 const crmRoutes = (app) => {
@@ -16,7 +17,7 @@ const crmRoutes = (app) => {
 
   app
     .route("/api-users/:userId")
-    // .put(updateUser)
+    .put(updateUser)
     // .put((req, res) =>
     //   res.send("/api-users/:userId Update-PUT request successful!")
     // )
