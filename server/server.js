@@ -20,6 +20,9 @@ app.use(
     extended: true,
   })
 );
+// serve static files
+app.use(express.static("public"));
+app.use(express.static("hatchful-music-manager"));
 
 const playerRoutes = require("./apis/routes-config/playerRoutes");
 playerRoutes(app);

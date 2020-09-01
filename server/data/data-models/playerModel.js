@@ -5,6 +5,9 @@ const Schema = mongoose.Schema;
 // export const PlayerSchema = new Schema({
 
 module.exports = PlayerModel = new Schema({
+  _id: {
+    type: String,
+  },
   firstName: {
     type: String,
     required: true,

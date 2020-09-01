@@ -5,6 +5,9 @@ const Schema = mongoose.Schema;
 
 // export const UserSchema = new Schema({
 module.exports = UserModel = new Schema({
+  _id: {
+    type: String,
+  },
   firstName: {
     type: String,
     default: "Jane or John",

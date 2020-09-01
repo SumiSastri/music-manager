@@ -22,27 +22,39 @@ module.exports = getPlayers = (req, res) => {
     .catch((err) => res.status(422).json({ message: err }));
 };
 
-// module.exports = getPlayerWithId = (req, res) => {
+// module.exports = getPlayerById = (req, res, next) => {
 //   // .route("/api-players/:playerId")
-//   Player.findById(req.params.playerId, (err, Player) => {
-//     if (err) {
-//       res.send(err);
+//   console.log(req.body);
+//   Player.findById(
+//     // the _id is null
+//     req.params.playerId,
+//     req.body,
+//     {
+//       useNewUrlParser: true,
+//       useCreateIndex: true,
+//       useUnifiedTopology: true,
+//       useFindAndModify: false,
+//     },
+//     (err, player) => {
+//       if (err) {
+//         return next(err);
+//       }
+//       res.json(player);
 //     }
-//     res.json(Player);
-//   });
+//   );
 // };
 
-// module.exports = updatePlayer = (req, res) => {
+// module.exports = updatePlayer = (req, res, next) => {
 //   // .route("/api-players/:playerId")
-//   Player.findOneAndUpdate(
-//     { _id: req.params.playerId },
+//   // console.log(req.body, "logs req.body");
+//   Player.findByIdAndUpdate(
+//     req.params.playerId,
 //     req.body,
-//     { new: true, useFindAndModify: false },
-//     (err, Player) => {
-//       if (err) {
-//         res.send(err);
-//       }
-//       res.json(Player);
+//     { new: true },
+//     function (err, player) {
+//       if (err) return next(err);
+//       res.status(500).send("There was a problem updating the user.");
+//       res.status(200).send(player);
 //     }
 //   );
 // };

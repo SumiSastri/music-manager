@@ -3,7 +3,7 @@
 Create a server-side folder, cd into the folder and install node packages - `npm init -y`
 
 Then install project and dev dependencies
-`npm install --save-dev @babel/core @babel/node @babel/preset-env @babel/cli @babel/preset-stage-0 && npm install express nodemon cors dotenv body-parser mongoose helmet express-rate-limit`
+`npm install --save-dev @babel/core @babel/node @babel/preset-env @babel/cli @babel/preset-stage-0 && npm install express nodemon cors dotenv body-parser mongoose helmet`
 
 [Babel Documentation - main](https://babeljs.io/docs/en/)
 [Documentation for node](https://babeljs.io/docs/en/babel-node)
@@ -37,7 +37,6 @@ Set up Express `server.js` test home route working and app listening on home rou
 **Server-side security**
 `npm install helmet` basic installation provides 11 HTTP middleware protection layers
 [Documentation](helmetjs.github.io) and on [npm](https://www.npmjs.com/package/helmet)
-`npm install express-rate-limit` protection against denial of service attacks - only 100 requests per IP in 15 minutes.
 
 **MongoDB**
 Add mongoDB connection test in `server.js` and test with real username and password in the `.env` file, add it below all server security imports just above the `app.listen()` method.
@@ -57,7 +56,15 @@ sudo chmod -R a+wxr /data
 
 Then only running `mongo` not `mongod`
 
+**Mongoose as Midware**
 Use Mongoose as an ORM for a further level of data-protection - I am running both MongoClient - direct access to the db and Mongoose to test the difference.
+Mongoose methods research:
+
+1. How to use the `.findByIdAndUpdate()` method - id is an object id, returns null or undefined - needs to be a string
+
+- [https://kb.objectrocket.com/mongo-db/how-to-use-the-mongoose-findbyidandupdate-method-92]
+
+- [https://stackoverflow.com/questions/47827392/mongoose-findbyid-returns-null-even-with-valid-id]
 
 1. Create schemas for data-security, validation of types.
 
