@@ -29,9 +29,11 @@ module.exports = getUsers = (req, res) => {
   // ID routes conflicting with general routes
 
   module.exports = getUserById = (req, res) => {
+    console.log(req.params.userId, "check id"); // to check the id
     User.findById(req.params.userId)
       .exec()
       .then(function (getUser) {
+        console.log("Response from mongo ", getUser);
         res.send(getUser);
       })
       .catch((err) =>

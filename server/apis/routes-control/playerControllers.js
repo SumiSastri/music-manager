@@ -8,11 +8,11 @@ const Player = mongoose.model("Player", PlayerModel);
 module.exports = addNewPlayer = (req, res) => {
   // pass the body of the request into the constructor model
   let addPlayer = new Player(req.body);
-  addPlayer.save((err, Player) => {
+  addPlayer.save(function (err, player) {
     if (err) {
-      res.send(err);
+      res.status(400).send(err);
     }
-    res.json(Player);
+    res.status(200).send(user);
   });
 };
 
@@ -23,25 +23,14 @@ module.exports = getPlayers = (req, res) => {
 };
 
 // module.exports = getPlayerById = (req, res, next) => {
-//   // .route("/api-players/:playerId")
+//   //   // .route("/api-players/:playerId")
 //   console.log(req.body);
-//   Player.findById(
-//     // the _id is null
-//     req.params.playerId,
-//     req.body,
-//     {
-//       useNewUrlParser: true,
-//       useCreateIndex: true,
-//       useUnifiedTopology: true,
-//       useFindAndModify: false,
-//     },
-//     (err, player) => {
-//       if (err) {
-//         return next(err);
-//       }
-//       res.json(player);
+//   Player.findById(req.params.playerId, function (err, user) {
+//     if (err) {
+//       res.status(400).send(err);
 //     }
-//   );
+//     res.status(200).send(user);
+//   });
 // };
 
 // module.exports = updatePlayer = (req, res, next) => {

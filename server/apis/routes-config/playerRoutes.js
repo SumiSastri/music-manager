@@ -16,9 +16,7 @@ const playerRoutes = (app) => {
     // POST endpoint CReate player
     .post(addNewPlayer);
 
-  // app
-  //   .route("/api-players/:playerId")
-  //   .get(getPlayerById)
+  app.route("/api-players/:playerId").get(getPlayerById);
   //   .put(updatePlayer)
   //   .delete(deletePlayer);
 };
