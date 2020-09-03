@@ -19,22 +19,25 @@ const AddPlayerForm = ({ props }) => {
     setEmail(id);
   };
 
-  const handleSubmitPlayerForm = (event) => {
-    event.preventDefault();
-    axios
-      .post("http://localhost:5000/players", {
-        firstName: props.firstName.value,
-        lastName: props.lastName.value,
-        phone: props.phone.value,
-        email: props.email.value,
-      })
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+  useEffect(
+    (handleSubmitPlayerForm = (event) => {
+      event.preventDefault();
+      axios
+        .post("http://localhost:5000/players", {
+          firstName: props.firstName.value,
+          lastName: props.lastName.value,
+          phoneNumber: props.phoneNumber.value,
+          email: props.email.value,
+        })
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }),
+    [firstName, lastName, phoneNumber, email]
+  );
 
   return (
     <div className="container-fluid">

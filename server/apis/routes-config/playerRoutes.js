@@ -1,10 +1,7 @@
 /*jshint esversion: 6 */
-
-// import { addNewPlayer } from "../api-route-controllers/playerControllers";
-
 const addNewPlayer = require("../routes-control/playerControllers");
 const getPlayers = require("../routes-control/playerControllers");
-const getPlayerById = require("../routes-control/playerControllers");
+const getPlayerWithId = require("../routes-control/playerControllers");
 const updatePlayer = require("../routes-control/playerControllers");
 const deletePlayer = require("../routes-control/playerControllers");
 
@@ -13,13 +10,18 @@ const playerRoutes = (app) => {
     .route("/api-players")
     // GET endpoint - all players
     .get(getPlayers)
-    // POST endpoint CReate player
+    // POST endpoint - to end of database
     .post(addNewPlayer);
 
-  app.route("/api-players/:playerId").get(getPlayerById);
-  //   .put(updatePlayer)
-  //   .delete(deletePlayer);
+  //  Unique records access
+  app
+    .route("/api-players/:playerId")
+    // GET-by-Id endpoint - uniquely identified player
+    .get(getPlayerWithId)
+    // PUT endpoint - uniquely identified player is updated
+    .put(updatePlayer)
+    // DELETE endpoint
+    .delete(deletePlayer);
 };
 
-// export default playerRoutes;
 module.exports = playerRoutes;

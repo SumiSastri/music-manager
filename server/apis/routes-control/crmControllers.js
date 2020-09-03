@@ -5,7 +5,7 @@ const UserModel = require("../../data/data-models/userModel");
 
 const User = mongoose.model("User", UserModel);
 
-module.exports = addNewUser = (req, res) => {
+module.exports = addNewUser = (req, res, next) => {
   let addUser = new User(req.body);
   addUser
     .save()
@@ -17,7 +17,7 @@ module.exports = addNewUser = (req, res) => {
     );
 };
 
-module.exports = getUsers = (req, res) => {
+module.exports = getUsers = (req, res, next) => {
   User.find({})
     .then(function (userList) {
       res.send(userList);
@@ -26,11 +26,11 @@ module.exports = getUsers = (req, res) => {
       res.status().res.json(err, { message: "successfuly fetched user list " })
     );
 
-  // ID routes conflicting with general routes
+  // Ids not recognised - logs null/ blank
 
   module.exports = getUserById = (req, res) => {
     console.log(req.params.userId, "check id"); // to check the id
-    User.findById(req.params.userId)
+    User.findById({ _id: req.params.userId }, { $set: req.body.userInfo })
       .exec()
       .then(function (getUser) {
         console.log("Response from mongo ", getUser);
@@ -39,16 +39,12 @@ module.exports = getUsers = (req, res) => {
       .catch((err) =>
         res
           .status()
-          .res.json(err, { message: "successfuly fetched user by id " })
+          .res.json(err, { message: "successfully fetched user by id " })
       );
   };
 
   module.exports = updateUser = (req, res, next) => {
     //   .route("/api-users/:userId")
-    // Model.findByIdAndUpdate(id, updateObj, {new:true}, func(model, err){}) EXPLICITLY SET?
-    // Model.findByIdAndUpdate(req.params.id, {$set: req.body.modelInfo}, { new: true }, function(err, updatedPayload){
-    // });
-
     User.findByIdAndUpdate({ _id: req.params.userId }, req.body, {
       new: true,
       useFindAndModify: false,
@@ -61,25 +57,28 @@ module.exports = getUsers = (req, res) => {
       .catch((err) =>
         res
           .status()
-          .res.json(err, { message: "successfuly updated user by id " })
+          .res.json(err, { message: "successfully updated user by id " })
       );
   };
 
   // DELETE works but conflicts with GET - the 2 dont work together
   module.exports = deleteUser = (req, res) => {
     // .route("/api-users/:userId")
-    User.findByIdAndRemove(req.body, {
-      new: true,
-      useFindAndModify: false,
-    })
+    User.findByIdAndRemove(
+      { _id: req.params.id },
+      {
+        new: true,
+        useFindAndModify: false,
+      }
+    )
       .exec()
-      .then(function (deleteUser) {
-        res.send(deleteUser);
+      .then(function (deletedUser) {
+        res.send(deletedUser);
       })
       .catch((err) =>
         res
           .status()
-          .res.json(err, { message: "successfuly deleted user by id " })
+          .res.json(err, { message: "successfully deleted user by id " })
       );
   };
 };

@@ -20,6 +20,11 @@ The advantages of MEAN/ MERN- (Mongo-Express-Angular (or React)-Node) stack with
 - npx create-react-app client and install all other libraries detailed in the front-end `README.md` documentation
 - npm init -y and install all other dev dependencies detailed in the back-end `README.md` documentation
 
+-ES-Lint `-npm install -d eslint` use it `npx eslint --init`
+
+- select JSON as compiler, Common JS for modules and Node for console, AirBnB style guide
+  -ES-Lint & Prettier `npm install -d prettier eslint-prettier-config eslint-plugin`
+
 - start scripts `npm run start` client localhost:3000 server localhost:5000
 - or `nodemon` in watch mode server-side
 

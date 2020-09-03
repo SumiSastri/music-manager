@@ -2,57 +2,58 @@
 const mongoose = require("mongoose");
 const PlayerModel = require("../../data/data-models/playerModel");
 
-// constructor that creates the PlayerModel
 const Player = mongoose.model("Player", PlayerModel);
 
-module.exports = addNewPlayer = (req, res) => {
-  // pass the body of the request into the constructor model
-  let addPlayer = new Player(req.body);
-  addPlayer.save(function (err, player) {
-    if (err) {
-      res.status(400).send(err);
-    }
-    res.status(200).send(user);
-  });
-};
+// module.exports = addNewPlayer = (req, res) => {
+//   let newPlayer = new Player(req.body);
 
-module.exports = getPlayers = (req, res) => {
-  Player.find({})
-    .then((playerList) => res.json(playerList))
-    .catch((err) => res.status(422).json({ message: err }));
-};
-
-// module.exports = getPlayerById = (req, res, next) => {
-//   //   // .route("/api-players/:playerId")
-//   console.log(req.body);
-//   Player.findById(req.params.playerId, function (err, user) {
+//   newPlayer.save((err, addPlayer) => {
 //     if (err) {
-//       res.status(400).send(err);
+//       res.send(err);
 //     }
-//     res.status(200).send(user);
+//     res.json(addPlayer);
 //   });
 // };
 
-// module.exports = updatePlayer = (req, res, next) => {
-//   // .route("/api-players/:playerId")
-//   // console.log(req.body, "logs req.body");
-//   Player.findByIdAndUpdate(
-//     req.params.playerId,
-//     req.body,
-//     { new: true },
-//     function (err, player) {
-//       if (err) return next(err);
-//       res.status(500).send("There was a problem updating the user.");
-//       res.status(200).send(player);
-//     }
-//   );
-// };
+module.exports = getPlayers = (req, res) => {
+  Player.find({}, (err, PlayerList) => {
+    if (err) {
+      res.send(err);
+    }
+    res.json(PlayerList);
+  });
+};
 
+module.exports = getPlayerWithId = (req, res) => {
+  // use the request.params method to find the exact player from the id generated in MongoDb
+  Player.findById({ _id: req.params.playerId }, (err, playerIdentify) => {
+    if (err) {
+      res.send(err);
+    }
+    res.json({ message: "Successfully identified player" });
+  });
+};
+
+module.exports = UpdatePlayer = (req, res) => {
+  Player.findByIdAndUpdate(
+    { _id: req.params.playerId },
+    // sends request.body to be updated
+    req.body,
+    { new: true },
+    (err, playerUpdated) => {
+      if (err) {
+        res.send(err);
+      }
+      res.json(playerUpdated);
+    }
+  );
+};
+// // Remove method working but not update or get
 // module.exports = deletePlayer = (req, res) => {
-//   // .route("/api-players/:playerId")
-//   Player.findByIdAndRemove(req.params.playerId, {
-//     useFindAndModify: false,
-//   }).then(function (player) {
-//     res.send(player);
+//   Player.findByIdAndRemove({ _id: req.params.playerId }, (err, playerDeleted) => {
+//     if (err) {
+//       res.send(err);
+//     }
+//     res.json({ message: "Successfully deleted player" });
 //   });
 // };

@@ -10,12 +10,13 @@ const deleteUser = require("../routes-control/crmControllers");
 const crmRoutes = (app) => {
   app
     .route("/api-users")
-    .get((req, res, next) => {
+    .get((req, res, next, end) => {
       // STEP 2 test middleware
       console.log(`Request from: ${req.originalUrl}`);
       console.log(`Request type: ${req.method}`);
       next();
     }, getUsers)
+
     // STEP 1 test routes with Postman
     // .get((req, res) => res.send("/api-users GET request successful!"))
     .post(addNewUser);

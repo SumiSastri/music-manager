@@ -4,13 +4,15 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 5000;
+// file paths static files
+const path = require("path");
 // Site security
 const cors = require("cors");
 const mongoose = require("mongoose");
-// const MongoClient = require("mongodb");
 const bodyParser = require("body-parser");
 const helmet = require("helmet");
-
+const rateLimit = require("express-rate-limit");
+// middleware
 app.use(helmet());
 app.use(cors());
 app.use(express.json());
@@ -20,9 +22,18 @@ app.use(
     extended: true,
   })
 );
+const rateLimter = new rateLimit({
+  windowsMs: 15 * 60 * 1000,
+  max: 100,
+  delayMs: 0,
+});
+
+app.get("/", (req, res) => {
+  res.send("your app home route is working");
+});
 // serve static files
-app.use(express.static("public"));
-app.use(express.static("hatchful-music-manager"));
+app.use("/", express.static(path.join(__dirname, "../public")));
+app.get("/favicon.ico", (req, res) => res.sendStatus(204));
 
 const playerRoutes = require("./apis/routes-config/playerRoutes");
 playerRoutes(app);
@@ -30,13 +41,10 @@ playerRoutes(app);
 const crmRoutes = require("./apis/routes-config/crmRoutes");
 crmRoutes(app);
 
-// app.get(`/api-players`, (req, res) => {
-//   res.send(`api-players working`);
-// });
-
-const dBUri = process.env.DB_CONNECTION;
+// mongoDb setup
+const dBurl = process.env.DB_CONNECTION;
 mongoose.connect(
-  dBUri,
+  dBurl,
   {
     useNewUrlParser: true,
     useCreateIndex: true,
