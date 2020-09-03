@@ -1,10 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const AddPlayerForm = ({ props }) => {
-  const [text, setText] = useState("");
-  let onInputChange = (id) => {
-    setText(id);
+  const [firstName, setFirstName] = useState("");
+  let onFirstNameChange = (id) => {
+    setFirstName(id);
+  };
+  const [lastName, setLastName] = useState("");
+  let onLastNameChange = (id) => {
+    setLastName(id);
+  };
+  const [phoneNumber, setPhoneNumber] = useState("");
+  let onPhoneNumberChange = (id) => {
+    setPhoneNumber(id);
+  };
+  const [email, setEmail] = useState("");
+  let onEmailChange = (id) => {
+    setEmail(id);
   };
 
   const handleSubmitPlayerForm = (event) => {
@@ -33,8 +45,8 @@ const AddPlayerForm = ({ props }) => {
             <input
               id="firstName"
               type="text"
-              value={text}
-              onChange={(event) => onInputChange(event.target.value)}
+              value={firstName}
+              onChange={(event) => onFirstNameChange(event.target.value)}
             />
             <label htmlFor="firstName">First Name</label>
           </div>
@@ -42,8 +54,8 @@ const AddPlayerForm = ({ props }) => {
             <input
               id="lastName"
               type="text"
-              value={text}
-              onChange={(event) => onInputChange(event.target.value)}
+              value={lastName}
+              onChange={(event) => onLastNameChange(event.target.value)}
             />
             <label htmlFor="lastName">Last Name</label>
           </div>
@@ -51,19 +63,19 @@ const AddPlayerForm = ({ props }) => {
         <div className="row">
           <div className="input-field col s6">
             <input
-              id="phone"
+              id="phoneNumber"
               type="text"
-              value={text}
-              onChange={(event) => onInputChange(event.target.value)}
+              value={phoneNumber}
+              onChange={(event) => onPhoneNumberChange(event.target.value)}
             />
-            <label htmlFor="phone">Phone</label>
+            <label htmlFor="phoneNumber">Phone</label>
           </div>
           <div className="input-field col s6">
             <input
               id="email"
               type="text"
-              value={text}
-              onChange={(event) => onInputChange(event.target.value)}
+              value={email}
+              onChange={(event) => onEmailChange(event.target.value)}
             />
             <label htmlFor="email">Email</label>
           </div>
