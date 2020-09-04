@@ -31,6 +31,54 @@ In put your test file in`DB_CONNECTION=mongodb+srv://<username>:<password>@clust
 
 Create a gitignore file touch `.gitignore` to ignore node files when you push to git repo copy the client-side `.gitignore` file and add `.env` to the files to ignore
 
+**ESLint & Prettier**
+-ES-Lint `-npm install -D eslint` use it `npx eslint --init`
+(Code style and mistakes)
+
+- On wizard use options - enforce code style, use CommonJs, React, No Typescript, code to run on Node for console, AirBnB style guide, config file in JSON, install dependencies suggested.
+
+- This creates the `.eslintrc.json file`
+
+-ES-Lint & Prettier `npm install -D prettier eslint-config-prettier eslint-plugin-prettier`
+(Consistent code - integrates prettier and eslint)
+
+The `.eslintrc.json` file this needs to be modified for prettier
+
+```
+{
+  "env": {
+    "node": true,
+    "commonjs": true,
+    "es2021": true
+  },
+  "extends": ["plugin:react/recommended", "airbnb", "prettier"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12
+  },
+  "plugins": ["react", "prettier"],
+  "rules": {}
+}
+```
+
+- start scripts `npm run start` client localhost:3000 server localhost:5000
+- or `nodemon` in watch mode server-side
+
+- `.prettierrc` file in root of server folder
+
+```
+{
+  "printWidth": 100,
+  "tabWidth": 4,
+  "useTabs": false,
+  "singleQuote": true,
+  "trailingComma": "es5",
+  "arrowParens": "avoid"
+}
+```
+
 **Server**
 Set up Express `server.js` test home route working and app listening on home route
 
