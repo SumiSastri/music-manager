@@ -1,8 +1,8 @@
 /*jshint esversion: 6 */
-const mongoose = require("mongoose");
-const PlayerModel = require("../../data/data-models/playerModel");
+const mongoose = require('mongoose');
+const PlayerModel = require('../../data/data-models/playerModel');
 
-const Player = mongoose.model("Player", PlayerModel);
+const Player = mongoose.model('Player', PlayerModel);
 
 // module.exports = addNewPlayer = (req, res) => {
 //   let newPlayer = new Player(req.body);
@@ -16,11 +16,11 @@ const Player = mongoose.model("Player", PlayerModel);
 // };
 
 module.exports = getPlayers = (req, res) => {
-  Player.find({}, (err, PlayerList) => {
+  Player.find({}, (err, playerList) => {
     if (err) {
       res.send(err);
     }
-    res.json(PlayerList);
+    res.json(playerList);
   });
 };
 
@@ -30,7 +30,7 @@ module.exports = getPlayerWithId = (req, res) => {
     if (err) {
       res.send(err);
     }
-    res.json({ message: "Successfully identified player" });
+    res.json({ message: 'Successfully identified player' });
   });
 };
 
