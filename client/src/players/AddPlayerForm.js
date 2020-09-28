@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const AddPlayerForm = ({ props }) => {
-  const [firstName, setFirstName] = useState("");
+  const [firstName, setFirstName] = useState('');
   let onFirstNameChange = (id) => {
     setFirstName(id);
   };
-  const [lastName, setLastName] = useState("");
+  const [lastName, setLastName] = useState('');
   let onLastNameChange = (id) => {
     setLastName(id);
   };
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState('');
   let onPhoneNumberChange = (id) => {
     setPhoneNumber(id);
   };
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState('');
   let onEmailChange = (id) => {
     setEmail(id);
   };
@@ -23,12 +23,7 @@ const AddPlayerForm = ({ props }) => {
     (handleSubmitPlayerForm = (event) => {
       event.preventDefault();
       axios
-        .post("http://localhost:5000/players", {
-          firstName: props.firstName.value,
-          lastName: props.lastName.value,
-          phoneNumber: props.phoneNumber.value,
-          email: props.email.value,
-        })
+        .post('http://localhost:5000/players', {})
         .then((response) => {
           console.log(response);
         })

@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
-import PlayerList from "./PlayerList";
-import PlayerCard from "./PlayerCard";
-import AddPlayerForm from "./AddPlayerForm";
+import PlayerList from './PlayerList';
+import PlayerCard from './PlayerCard';
 
 const PlayerIndex = () => {
   const [playerInfo, setPlayerInfo] = useState([]);
@@ -13,9 +12,9 @@ const PlayerIndex = () => {
   useEffect(() => {
     const fetchPlayers = async () => {
       const result = await axios.get(`http://localhost:5000/api-players`);
-      console.log("api-data-check", result.data);
+      console.log('api-data-check', result.data);
       setPlayerInfo(result.data);
-      console.log("setPlayerInfo-check", result.data);
+      console.log('setPlayerInfo-check', result.data);
     };
     fetchPlayers();
   }, []);
@@ -30,7 +29,6 @@ const PlayerIndex = () => {
         updateCurrentPlayer={updateCurrentPlayer}
       />
       <PlayerCard currentPlayerInfo={currentPlayerInfo} />
-      <AddPlayerForm />
     </div>
   );
 };
